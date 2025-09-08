@@ -1,0 +1,30 @@
+{
+  "name": "formacao-vigilantes-nextjs",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "export": "next export && node scripts/generate-rss.js",
+    "postbuild": "next-sitemap"
+  },
+  "dependencies": {
+    "next": "14.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "gray-matter": "^4.0.3",
+    "marked": "^5.1.1",
+    "next-seo": "^6.1.0",
+    "next-sitemap": "^4.2.3"
+  },
+  "devDependencies": {
+    "@types/node": "20.6.0",
+    "@types/react": "18.2.21",
+    "@types/react-dom": "18.2.7",
+    "eslint": "8.49.0",
+    "eslint-config-next": "14.0.0",
+    "typescript": "5.2.2"
+  }
+}

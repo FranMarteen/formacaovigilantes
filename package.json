@@ -1,0 +1,15 @@
+{
+  "name": "formacaodevigilantes-root",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix vercel-setup run dev",
+    "dev:port": "npm --prefix vercel-setup run dev --",
+    "start": "npm --prefix vercel-setup run start",
+    "build": "npm --prefix vercel-setup run build",
+    "export": "npm --prefix vercel-setup run export",
+    "lint": "npm --prefix vercel-setup run lint",
+    "install": "npm --prefix vercel-setup ci || npm --prefix vercel-setup install"
+  },
+  "description": "Root package to run the Next.js app inside vercel-setup from the repository root.",
+  "license": "UNLICENSED"
+}
