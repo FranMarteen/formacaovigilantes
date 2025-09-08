@@ -1,5 +1,9 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import { AppBar, Toolbar, Container, Stack, Button } from '@mui/material'
+import ArticleOutlined from '@mui/icons-material/ArticleOutlined'
+import HelpOutline from '@mui/icons-material/HelpOutline'
+import OpenInNew from '@mui/icons-material/OpenInNew'
 
 export default function SiteLayout({ children, title, description, schema, canonicalPath, noIndex, image, breadcrumb }) {
   const siteUrl = process.env.SITE_URL || 'https://formacaodevigilantes.com.br'
@@ -85,22 +89,25 @@ export default function SiteLayout({ children, title, description, schema, canon
         )}
       </Head>
 
-      <header className="navbar">
-        <div className="container">
-          <div className="navbar-brand">
-            <Link href="/">
+      <AppBar position="fixed" elevation={2}>
+        <Toolbar disableGutters>
+          <Container sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <Button component={Link} href="/" color="inherit" sx={{ fontWeight: 800 }}>
               <span className="brand-text" aria-label="Página inicial - Ludus Magnus Cariri">Ludus Magnus Cariri</span>
-            </Link>
-          </div>
-          <nav className="navbar-nav" aria-label="Navegação principal">
-            <Link href="#requisitos">Requisitos</Link>
-            {/* Removidos links quebrados (#curso, #especializacoes) até criação das seções */}
-            <Link href="#faq">FAQ</Link>
-            <a href="https://ludusmagnuscariri.com.br" className="btn-primary">Matricule-se</a>
-          </nav>
-        </div>
-      </header>
+            </Button>
+            <Stack direction="row" spacing={2} component="nav" aria-label="Navegação principal" sx={{ alignItems: 'center' }}>
+              <Button component={Link} href="/#requisitos" color="inherit">Requisitos</Button>
+              <Button component={Link} href="/artigos" color="inherit" startIcon={<ArticleOutlined />}>Artigos</Button>
+              <Button component={Link} href="/#faq" color="inherit" startIcon={<HelpOutline />}>FAQ</Button>
+              <Button href="https://ludusmagnuscariri.com.br" target="_blank" rel="noopener" variant="contained" color="secondary" endIcon={<OpenInNew />}>
+                Matricule-se
+              </Button>
+            </Stack>
+          </Container>
+        </Toolbar>
+      </AppBar>
 
+      <Toolbar />
       <main>{children}</main>
 
       <footer className="footer">
@@ -112,9 +119,9 @@ export default function SiteLayout({ children, title, description, schema, canon
             </div>
             <div className="footer-links">
               <h4>Links</h4>
-              <Link href="#requisitos">Requisitos</Link>
-              <Link href="#curso">Estrutura do Curso</Link>
-              <Link href="#especializacoes">Especializações</Link>
+              <Link href="/#requisitos">Requisitos</Link>
+              <Link href="/#curso">Estrutura do Curso</Link>
+              <Link href="/#especializacoes">Especializações</Link>
             </div>
             <div className="footer-contact">
               <h4>Contato</h4>

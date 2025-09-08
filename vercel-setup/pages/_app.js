@@ -1,6 +1,10 @@
 import '../styles/globals.css'
 import Script from 'next/script'
 import Head from 'next/head'
+import { CacheProvider } from '@emotion/react'
+import { CssBaseline, ThemeProvider } from '@mui/material'
+import createEmotionCache from '../src/theme/createEmotionCache'
+import theme from '../src/theme/theme'
 import { Montserrat, Open_Sans } from 'next/font/google'
 
 const montserrat = Montserrat({
@@ -17,13 +21,19 @@ const openSans = Open_Sans({
   display: 'swap',
 })
 
-function MyApp({ Component, pageProps }) {
+// Client-side cache, shared for the whole session of the user in the browser.
+const clientSideEmotionCache = createEmotionCache()
+
+function MyApp({ Component, pageProps, emotionCache = clientSideEmotionCache }) {
   return (
-    <>
+    <CacheProvider value={emotionCache}>
       <Head>
+        {/* Insertion point for MUI/Emotion to avoid FOUC */}
+        <meta name="emotion-insertion-point" content="" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </Head>
+
       {/* Google Analytics desativado até definir ID real */}
       {false && (
         <>
@@ -41,10 +51,14 @@ function MyApp({ Component, pageProps }) {
           </Script>
         </>
       )}
-      <div className={`${montserrat.variable} ${openSans.variable}`}>
-        <Component {...pageProps} />
-      </div>
-    </>
+
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <div className={`${montserrat.variable} ${openSans.variable}`}>
+          <Component {...pageProps} />
+        </div>
+      </ThemeProvider>
+    </CacheProvider>
   )
 }
 

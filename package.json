@@ -1,15 +1,39 @@
 {
-  "name": "formacaodevigilantes-root",
   "private": true,
+  "name": "formacaodevigilantes-root",
+  "description": "Root package.json managing the Next.js app located in ./vercel-setup.",
+  "license": "UNLICENSED",
+  "packageManager": "npm@10",
   "scripts": {
-    "dev": "npm --prefix vercel-setup run dev",
-    "dev:port": "npm --prefix vercel-setup run dev --",
-    "start": "npm --prefix vercel-setup run start",
-    "build": "npm --prefix vercel-setup run build",
-    "export": "npm --prefix vercel-setup run export",
-    "lint": "npm --prefix vercel-setup run lint",
-    "install": "npm --prefix vercel-setup ci || npm --prefix vercel-setup install"
+    "dev": "next dev vercel-setup",
+    "build": "next build vercel-setup",
+    "start": "next start vercel-setup",
+    "export": "next export vercel-setup && node vercel-setup/scripts/generate-rss.js",
+    "lint": "next lint --dir vercel-setup",
+    "postbuild": "next-sitemap --config vercel-setup/next-sitemap.config.js",
+    "clean": "npx rimraf vercel-setup/.next vercel-setup/out",
+    "format": "prettier --write \"vercel-setup/**/*.{js,jsx,css,md,mdx}\""
   },
-  "description": "Root package to run the Next.js app inside vercel-setup from the repository root.",
-  "license": "UNLICENSED"
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/server": "^11.11.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^7.3.2",
+    "@mui/material": "^7.3.2",
+    "gray-matter": "^4.0.3",
+    "marked": "^5.1.1",
+    "next": "14.0.0",
+    "next-seo": "^6.1.0",
+    "next-sitemap": "^4.2.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "20.6.0",
+    "@types/react": "18.2.21",
+    "@types/react-dom": "18.2.7",
+    "eslint": "8.49.0",
+    "eslint-config-next": "14.0.0",
+    "typescript": "5.2.2"
+  }
 }

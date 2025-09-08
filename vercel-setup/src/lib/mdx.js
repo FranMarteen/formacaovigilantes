@@ -73,7 +73,7 @@ export function getArticleBySlug(slugOrFile) {
     return { frontmatter: { title: targetFile.replace(/\.(html|mdx|md)$/,''), readTime }, content: processed, isHtml: true, slug: targetFile.replace(/\.(html|mdx|md)$/,'') }
   }
   const { data, content } = matter(raw)
-  const html = marked.parse(content)
+  const html = marked.parse(content, { mangle: false, headerIds: false })
   const processedHtml = injectSubHeadingIds(html)
   const fm = { ...data }
   if (!fm.readTime) {
