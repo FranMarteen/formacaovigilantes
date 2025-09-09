@@ -2,7 +2,8 @@ import SiteLayout from '../src/layouts/SiteLayout'
 import { useState } from 'react'
 import Link from 'next/link'
 import { getArticleSlugs, getArticleBySlug } from '../src/lib/mdx'
-import { Box, Grid, Card, CardContent, CardActions, Typography, Stack, Button } from '@mui/material'
+import { Box, Card, CardContent, CardActions, Typography, Stack, Button } from '@mui/material'
+import Grid from '@mui/material/Unstable_Grid2'
 import ArticleOutlined from '@mui/icons-material/ArticleOutlined'
 import AccessTimeOutlined from '@mui/icons-material/AccessTimeOutlined'
 import CategoryOutlined from '@mui/icons-material/CategoryOutlined'
@@ -48,21 +49,16 @@ export default function Home({ featured = [] }) {
       {/* Hero Section */}
       <section
         className='hero'
-        style={{
-          backgroundImage: "linear-gradient(135deg, rgba(27,54,93,0.9) 0%, rgba(44,82,130,0.9) 100%), url('https://rigu36qrznxinad7.public.blob.vercel-storage.com/vigilanteludusescola.png')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}
         aria-label="Vigilante em treinamento na Ludus Magnus Cariri, representando a formação profissional no Cariri"
       >
         <div className='container'>
           <div className='hero-content'>
-            <h1>Construa sua carreira de <span className='highlight'>Vigilante no Cariri</span> em 2025</h1>
-            <p className='hero-subtitle'>Formação credenciada e alinhada ao novo Estatuto (Lei 14.967/2024). <strong>+10 anos no Cariri</strong> preparando profissionais para um mercado que está formalizando rápido.</p>
+            <h1>Formação de Vigilantes no Cariri — Profissionalize-se agora</h1>
+            <p className='hero-subtitle'>Mercado em formalização acelerada, fiscalização da PF em alta e remuneração definida em CCT. Formação credenciada no Cariri para entrar no mercado legal.</p>
             <div className='hero-stats'>
-              <div className='stat'><span className='stat-number'>+9,3%</span><span className='stat-label'>Contratações no setor (1º sem/2024)</span></div>
-              <div className='stat'><span className='stat-number'>R$ 3.023</span><span className='stat-label'>Pacote médio mensal no CE (CCT 2024)</span></div>
-              <div className='stat'><span className='stat-number'>4</span><span className='stat-label'>Empresas clandestinas fechadas em Juazeiro (2024)</span></div>
+              <div className='stat'><span className='stat-number'>Mercado</span><span className='stat-label'>Formalização acelerada no CE</span></div>
+              <div className='stat'><span className='stat-number'>CCT</span><span className='stat-label'>Pacote definido e previsível</span></div>
+              <div className='stat'><span className='stat-number'>Cariri</span><span className='stat-label'>Vagas exigem certificação PF</span></div>
             </div>
             <div className='hero-cta'>
               <Button variant='contained' color='primary' size='large' href='https://www.ludusmagnusvigilantes.com.br/landing/loja'>
@@ -85,7 +81,7 @@ export default function Home({ featured = [] }) {
           </p>
           <Box sx={{ my: 2 }}>
             <Grid container spacing={2}>
-              <Grid item xs={12} md={6} lg={3}>
+              <Grid xs={12} md={6} lg={3}>
                 <Card elevation={0}>
                   <CardContent>
                     <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
@@ -97,7 +93,7 @@ export default function Home({ featured = [] }) {
                   </CardContent>
                 </Card>
               </Grid>
-              <Grid item xs={12} md={6} lg={3}>
+              <Grid xs={12} md={6} lg={3}>
                 <Card elevation={0}>
                   <CardContent>
                     <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
@@ -109,7 +105,7 @@ export default function Home({ featured = [] }) {
                   </CardContent>
                 </Card>
               </Grid>
-              <Grid item xs={12} md={6} lg={3}>
+              <Grid xs={12} md={6} lg={3}>
                 <Card elevation={0}>
                   <CardContent>
                     <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
@@ -121,7 +117,7 @@ export default function Home({ featured = [] }) {
                   </CardContent>
                 </Card>
               </Grid>
-              <Grid item xs={12} md={6} lg={3}>
+              <Grid xs={12} md={6} lg={3}>
                 <Card elevation={0}>
                   <CardContent>
                     <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
@@ -158,7 +154,7 @@ export default function Home({ featured = [] }) {
           <h2>📊 Mercado de Segurança Privada: 2024/25</h2>
           <Box sx={{ my: 2 }}>
             <Grid container spacing={2}>
-              <Grid item xs={12} md={6} lg={4}>
+              <Grid xs={12} md={6} lg={4}>
                 <Card elevation={1}>
                   <CardContent>
                     <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
@@ -170,7 +166,7 @@ export default function Home({ featured = [] }) {
                   </CardContent>
                 </Card>
               </Grid>
-              <Grid item xs={12} md={6} lg={4}>
+              <Grid xs={12} md={6} lg={4}>
                 <Card elevation={1}>
                   <CardContent>
                     <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
@@ -182,7 +178,7 @@ export default function Home({ featured = [] }) {
                   </CardContent>
                 </Card>
               </Grid>
-              <Grid item xs={12} md={6} lg={4}>
+              <Grid xs={12} md={6} lg={4}>
                 <Card elevation={1}>
                   <CardContent>
                     <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
@@ -204,7 +200,7 @@ export default function Home({ featured = [] }) {
         <div className="container">
           <h2>📜 Novo Estatuto 14.967/2024: Profissionalização Obrigatória</h2>
           <Grid container spacing={2}>
-            <Grid item xs={12} md={6}>
+            <Grid xs={12} md={6}>
               <Card elevation={1}>
                 <CardContent>
                   <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
@@ -216,7 +212,7 @@ export default function Home({ featured = [] }) {
                 </CardContent>
               </Card>
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid xs={12} md={6}>
               <Card elevation={1}>
                 <CardContent>
                   <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
@@ -237,7 +233,7 @@ export default function Home({ featured = [] }) {
         <div className="container">
           <h2>🗺️ Oportunidades no Ceará: RMF e Cariri</h2>
           <Grid container spacing={2}>
-            <Grid item xs={12} md={6}>
+            <Grid xs={12} md={6}>
               <Card elevation={1}>
                 <CardContent>
                   <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
@@ -249,7 +245,7 @@ export default function Home({ featured = [] }) {
                 </CardContent>
               </Card>
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid xs={12} md={6}>
               <Card elevation={1}>
                 <CardContent>
                   <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
@@ -270,7 +266,7 @@ export default function Home({ featured = [] }) {
         <div className="container">
           <h2>🌄 Cariri em Foco: Oportunidade Local Real</h2>
           <Grid container spacing={2}>
-            <Grid item xs={12} md={6} lg={3}>
+            <Grid xs={12} md={6} lg={3}>
               <Card elevation={1}>
                 <CardContent>
                   <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
@@ -282,7 +278,7 @@ export default function Home({ featured = [] }) {
                 </CardContent>
               </Card>
             </Grid>
-            <Grid item xs={12} md={6} lg={3}>
+            <Grid xs={12} md={6} lg={3}>
               <Card elevation={1}>
                 <CardContent>
                   <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
@@ -294,7 +290,7 @@ export default function Home({ featured = [] }) {
                 </CardContent>
               </Card>
             </Grid>
-            <Grid item xs={12} md={6} lg={3}>
+            <Grid xs={12} md={6} lg={3}>
               <Card elevation={1}>
                 <CardContent>
                   <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
@@ -306,7 +302,7 @@ export default function Home({ featured = [] }) {
                 </CardContent>
               </Card>
             </Grid>
-            <Grid item xs={12} md={6} lg={3}>
+            <Grid xs={12} md={6} lg={3}>
               <Card elevation={1}>
                 <CardContent>
                   <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
@@ -323,13 +319,13 @@ export default function Home({ featured = [] }) {
       </section>
 
       {/* Featured Articles */}
-      <section className='toc-section'>
+      <section className='section-dark'>
         <div className='container'>
           <h2>📰 Artigos em Destaque</h2>
           <Box className='featured-list' sx={{ my: 2 }}>
             <Grid container spacing={2}>
               {featured.map((a) => (
-                <Grid item xs={12} sm={6} key={a.slug}>
+                <Grid xs={12} sm={6} key={a.slug}>
                   <Card elevation={2}>
                     <CardContent>
                       <Typography variant='h6' component='h3' gutterBottom>
@@ -373,7 +369,7 @@ export default function Home({ featured = [] }) {
         <div className="container">
           <h2>💵 Remuneração no Ceará (CCT 2024)</h2>
           <Grid container spacing={2}>
-            <Grid item xs={12} md={4}>
+            <Grid xs={12} md={4}>
               <Card elevation={1}>
                 <CardContent>
                   <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
@@ -387,7 +383,7 @@ export default function Home({ featured = [] }) {
                 </CardContent>
               </Card>
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid xs={12} md={4}>
               <Card elevation={1}>
                 <CardContent>
                   <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
@@ -401,7 +397,7 @@ export default function Home({ featured = [] }) {
                 </CardContent>
               </Card>
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid xs={12} md={4}>
               <Card elevation={1}>
                 <CardContent>
                   <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
@@ -422,19 +418,19 @@ export default function Home({ featured = [] }) {
         <div className="container">
           <h2>🏆 Por que Estudar na Ludus Magnus Cariri</h2>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6} md={4}>
+            <Grid xs={12} sm={6} md={4}>
               <Card elevation={1}><CardContent>
                 <Typography variant="h6">Escola Credenciada</Typography>
                 <Typography variant="body2" color="text.secondary">Conformidade total com o novo estatuto e exigências da PF.</Typography>
               </CardContent></Card>
             </Grid>
-            <Grid item xs={12} sm={6} md={4}>
+            <Grid xs={12} sm={6} md={4}>
               <Card elevation={1}><CardContent>
                 <Typography variant="h6">Estande de Tiro & Estrutura</Typography>
                 <Typography variant="body2" color="text.secondary">Infra prática e instrutores experientes para formação completa.</Typography>
               </CardContent></Card>
             </Grid>
-            <Grid item xs={12} sm={6} md={4}>
+            <Grid xs={12} sm={6} md={4}>
               <Card elevation={1}><CardContent>
                 <Typography variant="h6">Parcerias & Empregabilidade</Typography>
                 <Typography variant="body2" color="text.secondary">Relacionamento com empresas formais e apoio no processo com a PF.</Typography>
@@ -464,7 +460,9 @@ export default function Home({ featured = [] }) {
           <div className='cta-banner'>
             <h3>✅ Atende aos requisitos?</h3>
             <p>A Ludus Magnus te acompanha em todo o processo de documentação!</p>
-            <a href='https://www.ludusmagnusvigilantes.com.br/landing/loja' className='btn-primary'>Iniciar Processo</a>
+            <Button variant="contained" color="primary" size="large" href='https://www.ludusmagnusvigilantes.com.br/landing/loja'>
+              Iniciar Processo
+            </Button>
           </div>
         </div>
       </section>
@@ -488,7 +486,7 @@ export default function Home({ featured = [] }) {
       <section id='especializacoes' className='especializacoes-section'>
         <div className='container'>
           <h2>🚀 Especializações Após a Formação</h2>
-          <p className='section-intro'>Após concluir a formação básica você pode ampliar seu currículo com cursos complementares que aumentam empregabilidade e faixa salarial.</p>
+        <p className='section-intro'>Após concluir a formação básica você pode ampliar seu currículo com cursos complementares que aumentam empregabilidade e faixa salarial.</p>
           <div className='especializacoes-grid'>
             <div className='esp-card'><h3>Segurança Eletrônica</h3><p>Operação e suporte de sistemas de CFTV e alarmes.</p></div>
             <div className='esp-card'><h3>Escolta Armada</h3><p>Procedimentos de proteção em deslocamentos e rotas.</p></div>
@@ -519,7 +517,9 @@ export default function Home({ featured = [] }) {
         <div className='container'>
           <h2>🚀 O Cariri precisa de profissionais certificados</h2>
             <p>Com a fiscalização da PF e a nova lei, as oportunidades estão migrando para o mercado formal. Garanta sua vaga com <strong>formação reconhecida</strong> e remuneração definida em CCT.</p>
-            <a href='https://www.ludusmagnusvigilantes.com.br/landing/loja/checkout3?cursoId=19581a47-1af9-4ff9-9536-19c08e38dc4a' className='btn-primary btn-large'>Quero me inscrever no Cariri</a>
+            <Button variant="contained" color="primary" size="large" href='https://www.ludusmagnusvigilantes.com.br/landing/loja/checkout3?cursoId=19581a47-1af9-4ff9-9536-19c08e38dc4a'>
+              Quero me inscrever no Cariri
+            </Button>
         </div>
       </section>
     </SiteLayout>

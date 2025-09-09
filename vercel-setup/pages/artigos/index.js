@@ -1,7 +1,8 @@
 import SiteLayout from '../../src/layouts/SiteLayout'
 import Link from 'next/link'
 import { getArticleSlugs, getArticleBySlug } from '../../src/lib/mdx'
-import { Box, Grid, Card, CardContent, CardActions, Typography, Stack, Button } from '@mui/material'
+import { Box, Card, CardContent, CardActions, Typography, Stack, Button } from '@mui/material'
+import Grid from '@mui/material/Unstable_Grid2'
 import ArticleOutlined from '@mui/icons-material/ArticleOutlined'
 import AccessTimeOutlined from '@mui/icons-material/AccessTimeOutlined'
 import CategoryOutlined from '@mui/icons-material/CategoryOutlined'
@@ -13,14 +14,15 @@ export default function ArticlesIndex({ articles }) {
   ]
   return (
     <SiteLayout title="Artigos e Guias" description="Lista de artigos e guias sobre carreira de vigilante, requisitos, salários e especializações." breadcrumb={breadcrumb} canonicalPath="/artigos">
-      <div className="container" style={{padding:'2rem 0'}}>
-        <h1 style={{marginBottom:'1rem'}}>Artigos e Guias</h1>
-        <p style={{marginBottom:'2rem'}}>Conteúdo atualizado sobre requisitos, formação, salários e evolução na carreira de vigilante.</p>
+      <section className="section-dark">
+        <div className="container" style={{padding:'2rem 0'}}>
+        <h1 style={{marginBottom:'1rem'}}>Guias para entrar no mercado formal de segurança</h1>
+        <p style={{marginBottom:'2rem'}}>Conteúdo direto ao ponto: requisitos PF, remuneração em CCT e caminhos para empregabilidade no Cariri e RMF.</p>
         <Box sx={{ mt: 2 }}>
-          <Grid container spacing={2}>
+          <Grid container spacing={3}>
             {articles.map((a) => (
-              <Grid item xs={12} sm={6} key={a.slug}>
-                <Card elevation={2}>
+              <Grid xs={12} sm={6} key={a.slug}>
+                <Card elevation={0}>
                   <CardContent>
                     <Typography variant="h6" component="h2" gutterBottom>
                       <Link href={`/artigos/${a.slug}`}>{a.title}</Link>
@@ -53,6 +55,7 @@ export default function ArticlesIndex({ articles }) {
           </Grid>
         </Box>
       </div>
+      </section>
     </SiteLayout>
   )
 }

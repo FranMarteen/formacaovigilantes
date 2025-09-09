@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { marked } from 'marked'
+import DOMPurify from 'isomorphic-dompurify'
 
 // Ajuste: permitir que a pasta `content` esteja no mesmo nível da pasta do projeto (../content) quando não encontrada localmente
 const projectRoot = process.cwd()
@@ -70,14 +71,16 @@ export function getArticleBySlug(slugOrFile) {
   if (targetFile.endsWith('.html')) {
     const readTime = computeReadTime(raw)
     const processed = injectSubHeadingIds(raw)
-    return { frontmatter: { title: targetFile.replace(/\.(html|mdx|md)$/,''), readTime }, content: processed, isHtml: true, slug: targetFile.replace(/\.(html|mdx|md)$/,'') }
+    const sanitized = DOMPurify.sanitize(processed, { ADD_TAGS: ['section'] })
+    return { frontmatter: { title: targetFile.replace(/\.(html|mdx|md)$/,''), readTime }, content: sanitized, isHtml: true, slug: targetFile.replace(/\.(html|mdx|md)$/,'') }
   }
   const { data, content } = matter(raw)
   const html = marked.parse(content, { mangle: false, headerIds: false })
   const processedHtml = injectSubHeadingIds(html)
+  const sanitized = DOMPurify.sanitize(processedHtml, { ADD_TAGS: ['section'] })
   const fm = { ...data }
   if (!fm.readTime) {
     fm.readTime = computeReadTime(content)
   }
-  return { frontmatter: fm, content: processedHtml, isHtml: false, slug: targetFile.replace(/\.(html|mdx|md)$/,'') }
+  return { frontmatter: fm, content: sanitized, isHtml: false, slug: targetFile.replace(/\.(html|mdx|md)$/,'') }
 }

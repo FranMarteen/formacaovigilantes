@@ -1,4 +1,4 @@
-https://www.ludusmagnusvigilantes.com.br/landing/loja/checkout3?cursoId=19581a47-1af9-4ff9-9536-19c08e38dc4a/* === Vigil App Design Tokens (HSL) === */
+/* === Vigil App Design Tokens (HSL) === */
 :root {
   /* Light Theme */
   --background: 0 0% 100%;
@@ -266,7 +266,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, #1B365D 0%, #2C5282 100%);
+  background: #000;
   color: white;
   padding: 120px 0 60px;
   text-align: left;
@@ -295,9 +295,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-stats {
   display: flex;
-  justify-content: center;
-  gap: 3rem;
-  margin: 3rem 0;
+  justify-content: flex-start;
+  gap: 2rem;
+  margin: 2rem 0;
 }
 
 .stat {
@@ -320,21 +320,21 @@ h1, h2, h3, h4, h5, h6 {
 .hero-cta {
   display: flex;
   gap: 1rem;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   margin-top: 2rem;
 }
 
 /* Hero alignment helpers */
 .hero .container { display: flex; align-items: center; min-height: 70vh; }
-.hero .hero-content { max-width: 720px; text-shadow: 0 1px 2px rgba(0,0,0,0.4); }
+.hero .hero-content { max-width: 720px; }
 
 /* Hero Badges */
 .hero-badges { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; margin: 0 0 1rem; }
 .hero-badges .badge { display: inline-flex; align-items: center; gap: .4rem; padding: .45rem .8rem; border-radius: 9999px; background: hsl(var(--background) / 0.85); border: 1px solid hsl(var(--border)); color: #1B365D; font-weight: 700; box-shadow: var(--shadow-sm); }
 
 /* Dark section like Ludus */
-.section-dark { background: #0f172a; color: #e5e7eb; }
+.section-dark { background: #000; color: #e5e7eb; }
 .section-dark h2 { color: #e5e7eb; }
 .section-dark .MuiTypography-root { color: #cbd5e1; }
 .section-dark .MuiCard-root { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 8px 20px rgba(0,0,0,0.25); }
@@ -342,7 +342,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Table of Contents */
 .toc-section {
   padding: 60px 0;
-  background: #f8f9fa;
+  background: #000;
 }
 
 .toc-grid {
@@ -353,10 +353,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .toc-item {
-  background: white;
+  background: rgba(255,255,255,0.04);
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: none;
   transition: transform 0.3s ease;
 }
 
@@ -365,13 +366,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .toc-item h3 a {
-  color: #1B365D;
+  color: #D4AF37;
   text-decoration: none;
   font-size: 1.2rem;
 }
 
 .toc-item p {
-  color: #666;
+  color: #cbd5e1;
   margin-top: 0.5rem;
 }
 
@@ -425,12 +426,13 @@ h1, h2, h3, h4, h5, h6 {
 
 /* CTA Banner */
 .cta-banner {
-  background: linear-gradient(135deg, #1B365D 0%, #2C5282 100%);
+  background: #0b0b0b;
   color: white;
   padding: 3rem;
   border-radius: 15px;
   text-align: center;
   margin-top: 3rem;
+  border: 1px solid rgba(255,255,255,0.12);
 }
 
 .cta-banner h3 {
@@ -506,10 +508,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Final CTA */
 .final-cta {
-  background: linear-gradient(135deg, #D4AF37 0%, #F1C40F 100%);
-  color: #1B365D;
+  background: #000;
+  color: #e5e7eb;
   padding: 80px 0;
   text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 .final-cta h2 {

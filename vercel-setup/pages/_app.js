@@ -6,6 +6,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material'
 import createEmotionCache from '../src/theme/createEmotionCache'
 import theme from '../src/theme/theme'
 import { Inter } from 'next/font/google'
+import { DefaultSeo } from 'next-seo'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -48,6 +49,16 @@ function MyApp({ Component, pageProps, emotionCache = clientSideEmotionCache }) 
       )}
 
       <ThemeProvider theme={theme}>
+        <DefaultSeo
+          titleTemplate="%s | Formação de Vigilantes"
+          defaultTitle="Formação de Vigilantes — Ludus Magnus Cariri"
+          openGraph={{
+            type: 'website',
+            siteName: 'Formação de Vigilantes',
+            images: [{ url: '/og-default.jpg', width: 1200, height: 630 }]
+          }}
+          twitter={{ cardType: 'summary_large_image' }}
+        />
         <CssBaseline />
         <div className={`${inter.variable}`}>
           <Component {...pageProps} />

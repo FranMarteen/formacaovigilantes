@@ -19,9 +19,11 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: bodyFamily,
-    h1: { fontFamily: headingFamily, fontWeight: 800, letterSpacing: '0.2px' },
-    h2: { fontFamily: headingFamily, fontWeight: 800, letterSpacing: '0.2px' },
-    h3: { fontFamily: headingFamily, fontWeight: 700 }
+    h1: { fontFamily: headingFamily, fontWeight: 800, letterSpacing: '0.2px', fontSize: 'clamp(2.25rem, 3.5vw, 3.25rem)', lineHeight: 1.15 },
+    h2: { fontFamily: headingFamily, fontWeight: 800, letterSpacing: '0.2px', fontSize: 'clamp(1.75rem, 2.5vw, 2.25rem)', lineHeight: 1.2 },
+    h3: { fontFamily: headingFamily, fontWeight: 700, fontSize: 'clamp(1.35rem, 2vw, 1.5rem)', lineHeight: 1.25 },
+    body1: { fontSize: '1.0625rem', lineHeight: 1.7 },
+    body2: { fontSize: '0.9375rem', lineHeight: 1.65 }
   },
   components: {
     MuiCssBaseline: {
