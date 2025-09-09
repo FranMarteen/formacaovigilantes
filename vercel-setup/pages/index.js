@@ -40,20 +40,32 @@ export default function Home({ featured = [] }) {
   }
 
   return (
-    <SiteLayout schema={schema}>
+    <SiteLayout
+      title="Formação de Vigilantes no Cariri 2025 | Curso Credenciado"
+      description="Curso de formação de vigilantes no Cariri (Juazeiro do Norte). Alinhado ao novo Estatuto (Lei 14.967/2024), empregabilidade com mercado em formalização e pacote remuneratório definido por CCT. +10 anos no Cariri."
+      schema={schema}
+    >
       {/* Hero Section */}
-      <section className='hero'>
+      <section
+        className='hero'
+        style={{
+          backgroundImage: "linear-gradient(135deg, rgba(27,54,93,0.9) 0%, rgba(44,82,130,0.9) 100%), url('https://rigu36qrznxinad7.public.blob.vercel-storage.com/vigilanteludusescola.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+        aria-label="Vigilante em treinamento na Ludus Magnus Cariri, representando a formação profissional no Cariri"
+      >
         <div className='container'>
           <div className='hero-content'>
-            <h1>Torne-se um <span className='highlight'>Vigilante Profissional</span> em 2025</h1>
-            <p className='hero-subtitle'>Curso completo de formação com certificação nacional. <strong>+10 anos formando profissionais</strong> no Cariri e região.</p>
+            <h1>Construa sua carreira de <span className='highlight'>Vigilante no Cariri</span> em 2025</h1>
+            <p className='hero-subtitle'>Formação credenciada e alinhada ao novo Estatuto (Lei 14.967/2024). <strong>+10 anos no Cariri</strong> preparando profissionais para um mercado que está formalizando rápido.</p>
             <div className='hero-stats'>
-              <div className='stat'><span className='stat-number'>95%</span><span className='stat-label'>Taxa de Aprovação</span></div>
-              <div className='stat'><span className='stat-number'>500+</span><span className='stat-label'>Alunos Formados</span></div>
-              <div className='stat'><span className='stat-number'>R$ 2.800</span><span className='stat-label'>Salário Médio</span></div>
+              <div className='stat'><span className='stat-number'>+9,3%</span><span className='stat-label'>Contratações no setor (1º sem/2024)</span></div>
+              <div className='stat'><span className='stat-number'>R$ 3.023</span><span className='stat-label'>Pacote médio mensal no CE (CCT 2024)</span></div>
+              <div className='stat'><span className='stat-number'>4</span><span className='stat-label'>Empresas clandestinas fechadas em Juazeiro (2024)</span></div>
             </div>
             <div className='hero-cta'>
-              <Button variant='contained' color='secondary' size='large' href='https://ludusmagnuscariri.com.br'>
+              <Button variant='contained' color='primary' size='large' href='https://www.ludusmagnusvigilantes.com.br/landing/loja'>
                 Comece Sua Carreira Agora
               </Button>
               <Button variant='outlined' color='primary' href='#requisitos'>
@@ -63,14 +75,77 @@ export default function Home({ featured = [] }) {
           </div>
         </div>
       </section>
+
+      {/* Por que a Ludus Magnus é a sua melhor escolha */}
+      <section className="section-dark">
+        <div className="container">
+          <h2>Por que a Ludus Magnus é a sua melhor escolha?</h2>
+          <p className="section-intro" style={{ color: 'rgba(229,231,235,0.9)' }}>
+            Formamos profissionais prontos para se destacar mais no mercado.
+          </p>
+          <Box sx={{ my: 2 }}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} md={6} lg={3}>
+                <Card elevation={0}>
+                  <CardContent>
+                    <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
+                      <Verified color="success" /><Typography variant="h6">Instrução de Excelência</Typography>
+                    </Stack>
+                    <Typography variant="body2">
+                      Instrutores experientes e forte base prática para formar profissionais prontos para atuar.
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+              <Grid item xs={12} md={6} lg={3}>
+                <Card elevation={0}>
+                  <CardContent>
+                    <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
+                      <Apartment color="primary" /><Typography variant="h6">Infraestrutura Completa</Typography>
+                    </Stack>
+                    <Typography variant="body2">
+                      Salas, estande e recursos de primeira para uma experiência de aprendizado superior.
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+              <Grid item xs={12} md={6} lg={3}>
+                <Card elevation={0}>
+                  <CardContent>
+                    <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
+                      <TrendingUp color="primary" /><Typography variant="h6">Foco na Empregabilidade</Typography>
+                    </Stack>
+                    <Typography variant="body2">
+                      Conteúdos e práticas voltados às exigências do mercado formal e das empresas autorizadas.
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+              <Grid item xs={12} md={6} lg={3}>
+                <Card elevation={0}>
+                  <CardContent>
+                    <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
+                      <Security color="primary" /><Typography variant="h6">Conveniência e Segurança</Typography>
+                    </Stack>
+                    <Typography variant="body2">
+                      Processo orientado, apoio em documentação e foco em conformidade com a PF e CCT.
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+            </Grid>
+          </Box>
+        </div>
+      </section>
+
       {/* Table of Contents */}
       <section className='toc-section'>
         <div className='container'>
           <h2>📋 Índice do Conteúdo</h2>
           <div className='toc-grid'>
-            <div className='toc-item'><h3><a href='#mercado'>1. Mercado em 2024/25</a></h3><p>Tamanho, crescimento e oportunidades</p></div>
+            <div className='toc-item'><h3><a href='#mercado'>1. Mercado no Ceará e Cariri (2024/25)</a></h3><p>Crescimento, formalização e demanda real</p></div>
             <div className='toc-item'><h3><a href='#estatuto'>2. Novo Estatuto 14.967/2024</a></h3><p>Por que a certificação é obrigatória</p></div>
-            <div className='toc-item'><h3><a href='#oportunidades'>3. Oportunidades no Ceará</a></h3><p>Fortaleza e Cariri em foco</p></div>
+            <div className='toc-item'><h3><a href='#oportunidades'>3. Oportunidades no Cariri e RMF</a></h3><p>Juazeiro do Norte em destaque</p></div>
             <div className='toc-item'><h3><a href='#remuneracao'>4. Remuneração (CCT 2024)</a></h3><p>Pacote salarial e benefícios</p></div>
             <div className='toc-item'><h3><a href='#porque-ludus'>5. Por que Ludus Magnus</a></h3><p>Diferenciais e compromisso</p></div>
             <div className='toc-item'><h3><a href='#requisitos'>6. Requisitos Básicos</a></h3><p>O que você precisa para iniciar</p></div>
@@ -189,6 +264,64 @@ export default function Home({ featured = [] }) {
           </Grid>
         </div>
       </section>
+
+      {/* Cariri em Foco */}
+      <section id="cariri" className="toc-section">
+        <div className="container">
+          <h2>🌄 Cariri em Foco: Oportunidade Local Real</h2>
+          <Grid container spacing={2}>
+            <Grid item xs={12} md={6} lg={3}>
+              <Card elevation={1}>
+                <CardContent>
+                  <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
+                    <Place color="primary" /><Typography variant="h6">Economia Forte</Typography>
+                  </Stack>
+                  <Typography variant="body2" color="text.secondary">
+                    Segundo polo do CE e motor regional: Juazeiro lidera consumo com potencial de R$ 7,8 bi em 2025.
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item xs={12} md={6} lg={3}>
+              <Card elevation={1}>
+                <CardContent>
+                  <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
+                    <Verified color="success" /><Typography variant="h6">Formalização</Typography>
+                  </Stack>
+                  <Typography variant="body2" color="text.secondary">
+                    PF encerrou 4 empresas clandestinas em Juazeiro (2024). Mercado migra para profissionais certificados.
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item xs={12} md={6} lg={3}>
+              <Card elevation={1}>
+                <CardContent>
+                  <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
+                    <LocalMall color="primary" /><Typography variant="h6">Setores em Alta</Typography>
+                  </Stack>
+                  <Typography variant="body2" color="text.secondary">
+                    Comércio, saúde, educação e turismo religioso ampliam a demanda por segurança profissional.
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item xs={12} md={6} lg={3}>
+              <Card elevation={1}>
+                <CardContent>
+                  <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
+                    <Security color="primary" /><Typography variant="h6">Empregabilidade</Typography>
+                  </Stack>
+                  <Typography variant="body2" color="text.secondary">
+                    Vagas exigem curso e reciclagem atualizada. Formação credenciada é o seu passaporte.
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          </Grid>
+        </div>
+      </section>
+
       {/* Featured Articles */}
       <section className='toc-section'>
         <div className='container'>
@@ -229,7 +362,7 @@ export default function Home({ featured = [] }) {
               ))}
             </Grid>
             <Stack alignItems='center' sx={{ mt: 2 }}>
-              <Button component={Link} href="/artigos" variant="outlined">Ver todos os artigos</Button>
+              <Button component={Link} href="/artigos" variant="outlined" color="secondary">Ver todos os artigos</Button>
             </Stack>
           </Box>
         </div>
@@ -309,8 +442,8 @@ export default function Home({ featured = [] }) {
             </Grid>
           </Grid>
           <Stack direction="row" spacing={2} justifyContent="center" sx={{ mt: 2 }}>
-            <Button variant="contained" color="secondary" href="https://ludusmagnuscariri.com.br">Próximas Turmas</Button>
-            <Button variant="outlined" color="primary" href="/artigos">Ler Guias e Artigos</Button>
+            <Button variant="contained" color="primary" href="https://www.ludusmagnusvigilantes.com.br/landing/loja">Próximas Turmas</Button>
+            <Button variant="outlined" color="secondary" href="/artigos">Ler Guias e Artigos</Button>
           </Stack>
         </div>
       </section>
@@ -331,7 +464,7 @@ export default function Home({ featured = [] }) {
           <div className='cta-banner'>
             <h3>✅ Atende aos requisitos?</h3>
             <p>A Ludus Magnus te acompanha em todo o processo de documentação!</p>
-            <a href='https://ludusmagnuscariri.com.br' className='btn-primary'>Iniciar Processo</a>
+            <a href='https://www.ludusmagnusvigilantes.com.br/landing/loja' className='btn-primary'>Iniciar Processo</a>
           </div>
         </div>
       </section>
@@ -384,9 +517,9 @@ export default function Home({ featured = [] }) {
       {/* Final CTA */}
       <section className='final-cta'>
         <div className='container'>
-          <h2>🚀 Comece Sua Nova Carreira Hoje!</h2>
-            <p>Junte-se aos <strong>mais de 500 profissionais</strong> já formados pela Ludus Magnus. Sua oportunidade está aqui!</p>
-            <a href='https://ludusmagnuscariri.com.br' className='btn-primary btn-large'>Quero Me Inscrever Agora</a>
+          <h2>🚀 O Cariri precisa de profissionais certificados</h2>
+            <p>Com a fiscalização da PF e a nova lei, as oportunidades estão migrando para o mercado formal. Garanta sua vaga com <strong>formação reconhecida</strong> e remuneração definida em CCT.</p>
+            <a href='https://www.ludusmagnusvigilantes.com.br/landing/loja/checkout3?cursoId=19581a47-1af9-4ff9-9536-19c08e38dc4a' className='btn-primary btn-large'>Quero me inscrever no Cariri</a>
         </div>
       </section>
     </SiteLayout>

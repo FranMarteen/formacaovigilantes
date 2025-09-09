@@ -99,7 +99,7 @@ export default function SiteLayout({ children, title, description, schema, canon
               <Button component={Link} href="/#requisitos" color="inherit">Requisitos</Button>
               <Button component={Link} href="/artigos" color="inherit" startIcon={<ArticleOutlined />}>Artigos</Button>
               <Button component={Link} href="/#faq" color="inherit" startIcon={<HelpOutline />}>FAQ</Button>
-              <Button href="https://ludusmagnuscariri.com.br" target="_blank" rel="noopener" variant="contained" color="secondary" endIcon={<OpenInNew />}>
+              <Button href="https://www.ludusmagnusvigilantes.com.br/landing/loja" target="_blank" rel="noopener" variant="contained" color="primary" endIcon={<OpenInNew />}>
                 Matricule-se
               </Button>
             </Stack>

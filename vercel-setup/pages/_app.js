@@ -5,21 +5,16 @@ import { CacheProvider } from '@emotion/react'
 import { CssBaseline, ThemeProvider } from '@mui/material'
 import createEmotionCache from '../src/theme/createEmotionCache'
 import theme from '../src/theme/theme'
-import { Montserrat, Open_Sans } from 'next/font/google'
+import { Inter } from 'next/font/google'
 
-const montserrat = Montserrat({
+const inter = Inter({
   subsets: ['latin'],
-  weight: ['400', '600', '700', '800'],
-  variable: '--font-montserrat',
+  weight: ['300', '400', '500', '600', '700', '800'],
+  variable: '--font-inter',
   display: 'swap',
 })
 
-const openSans = Open_Sans({
-  subsets: ['latin'],
-  weight: ['400', '600', '700'],
-  variable: '--font-open-sans',
-  display: 'swap',
-})
+/* Using Inter as the unified font to align with Vigil App tokens */
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache()
@@ -54,7 +49,7 @@ function MyApp({ Component, pageProps, emotionCache = clientSideEmotionCache }) 
 
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <div className={`${montserrat.variable} ${openSans.variable}`}>
+        <div className={`${inter.variable}`}>
           <Component {...pageProps} />
         </div>
       </ThemeProvider>

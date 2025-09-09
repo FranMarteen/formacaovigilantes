@@ -12,7 +12,7 @@ const nextConfig = {
   },
   env: {
     SITE_URL: 'https://formacaodevigilantes.com.br',
-    LUDUS_MAGNUS_URL: 'https://ludusmagnuscariri.com.br'
+    LUDUS_MAGNUS_URL: 'https://www.ludusmagnusvigilantes.com.br'
   }
   // redirects removidos (static export já possui página alias)
 }

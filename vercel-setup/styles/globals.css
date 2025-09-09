@@ -1,3 +1,146 @@
+https://www.ludusmagnusvigilantes.com.br/landing/loja/checkout3?cursoId=19581a47-1af9-4ff9-9536-19c08e38dc4a/* === Vigil App Design Tokens (HSL) === */
+:root {
+  /* Light Theme */
+  --background: 0 0% 100%;
+  --foreground: 0 0% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 3.9%;
+
+  /* Brand Primary (Gold) */
+  --primary: 45.5 94% 44%;
+  --primary-foreground: 0 0% 98%;
+  --primary-hover: 45.5 94% 40%;
+  --primary-active: 45.5 94% 36%;
+
+  /* Secondary and Neutrals */
+  --secondary: 0 0% 96.1%;
+  --secondary-foreground: 0 0% 9%;
+  --secondary-hover: 210 40% 92%;
+  --muted: 0 0% 96.1%;
+  --muted-foreground: 0 0% 45.1%;
+  --accent: 0 0% 96.1%;
+  --accent-foreground: 0 0% 9%;
+
+  /* Status */
+  --success: 142.1 76.2% 36.3%;
+  --success-foreground: 355.7 100% 97.3%;
+  --warning: 32.4 95.6% 64.3%;
+  --warning-foreground: 0 0% 3.9%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --info: 204 94% 94%;
+  --info-foreground: 213 27% 84%;
+
+  /* Borders and Focus Ring */
+  --border: 0 0% 89.8%;
+  --input: 0 0% 89.8%;
+  --ring: 0 0% 3.9%;
+
+  /* Radius */
+  --radius: 0.5rem;
+  --radius-sm: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* Background Variants */
+  --background-elevated: 0 0% 99%;
+  --background-muted: 210 40% 98%;
+  --background-subtle: 210 40% 96%;
+
+  /* Charts */
+  --chart-1: 12 76% 61%;
+  --chart-2: 173 58% 39%;
+  --chart-3: 197 37% 24%;
+  --chart-4: 43 74% 66%;
+  --chart-5: 27 87% 67%;
+}
+
+.dark {
+  /* Dark Theme */
+  --background: 0 0% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 0 0% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --popover: 0 0% 3.9%;
+  --popover-foreground: 0 0% 98%;
+
+  /* Brand Primary (Gold) - Dark */
+  --primary: 45.5 95% 52%;
+  --primary-foreground: 0 0% 98%;
+  --primary-hover: 45.5 95% 57%;
+  --primary-active: 45.5 95% 62%;
+
+  --secondary: 0 0% 14.9%;
+  --secondary-foreground: 0 0% 98%;
+  --secondary-hover: 217.2 32.6% 22%;
+  --muted: 0 0% 14.9%;
+  --muted-foreground: 0 0% 63.9%;
+  --accent: 0 0% 14.9%;
+  --accent-foreground: 0 0% 98%;
+
+  --success: 142.1 70.6% 45.3%;
+  --success-foreground: 144.9 80.4% 10%;
+  --warning: 32.4 90.6% 50.3%;
+  --warning-foreground: 20.9 95.3% 90.1%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 0 0% 14.9%;
+  --input: 0 0% 14.9%;
+  --ring: 0 0% 83.1%;
+
+  --background-elevated: 222.2 84% 6%;
+  --background-muted: 217.2 32.6% 17.5%;
+  --background-subtle: 217.2 32.6% 15%;
+
+  --chart-1: 220 70% 50%;
+  --chart-2: 160 60% 45%;
+  --chart-3: 30 80% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55%;
+}
+
+/* Global selection and focus styles aligned with Vigil App tokens */
+::selection {
+  background-color: hsl(var(--primary) / 0.2);
+  color: hsl(var(--primary-foreground));
+}
+*:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px hsl(var(--ring));
+}
+
+/* Glass morphism helper */
+.glass {
+  backdrop-filter: blur(6px);
+  background: hsl(var(--background) / 0.8);
+  border: 1px solid hsl(var(--border) / 0.6);
+}
+
+/* Modern scrollbar helper */
+.scrollbar-modern {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--muted-foreground)) transparent;
+}
+.scrollbar-modern::-webkit-scrollbar { width: 6px; height: 6px; }
+.scrollbar-modern::-webkit-scrollbar-track { background: transparent; }
+.scrollbar-modern::-webkit-scrollbar-thumb {
+  background: hsla(var(--muted-foreground) / 0.3);
+  border-radius: 9999px;
+}
+.scrollbar-modern::-webkit-scrollbar-thumb:hover {
+  background: hsla(var(--muted-foreground) / 0.5);
+}
+
 /* Reset e Base Styles */
 * {
   margin: 0;
@@ -10,7 +153,7 @@ html {
 }
 
 body {
-  font-family: var(--font-open-sans), 'Open Sans', sans-serif;
+  font-family: var(--font-inter), 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   line-height: 1.6;
   color: #333;
   background-color: #ffffff;
@@ -18,7 +161,7 @@ body {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+  font-family: var(--font-inter), 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-weight: 700;
   line-height: 1.2;
 }
@@ -126,7 +269,10 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(135deg, #1B365D 0%, #2C5282 100%);
   color: white;
   padding: 120px 0 60px;
-  text-align: center;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  min-height: 70vh;
 }
 
 .hero h1 {
@@ -141,9 +287,10 @@ h1, h2, h3, h4, h5, h6 {
 .hero-subtitle {
   font-size: 1.2rem;
   margin-bottom: 2rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 680px;
+  margin-left: 0;
+  margin-right: 0;
+  color: #F1F5F9; /* melhor contraste sobre overlay */
 }
 
 .hero-stats {
@@ -162,7 +309,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 2.5rem;
   font-weight: 800;
   color: #D4AF37;
-  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+  font-family: var(--font-inter), 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 .stat-label {
@@ -177,6 +324,20 @@ h1, h2, h3, h4, h5, h6 {
   flex-wrap: wrap;
   margin-top: 2rem;
 }
+
+/* Hero alignment helpers */
+.hero .container { display: flex; align-items: center; min-height: 70vh; }
+.hero .hero-content { max-width: 720px; text-shadow: 0 1px 2px rgba(0,0,0,0.4); }
+
+/* Hero Badges */
+.hero-badges { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; margin: 0 0 1rem; }
+.hero-badges .badge { display: inline-flex; align-items: center; gap: .4rem; padding: .45rem .8rem; border-radius: 9999px; background: hsl(var(--background) / 0.85); border: 1px solid hsl(var(--border)); color: #1B365D; font-weight: 700; box-shadow: var(--shadow-sm); }
+
+/* Dark section like Ludus */
+.section-dark { background: #0f172a; color: #e5e7eb; }
+.section-dark h2 { color: #e5e7eb; }
+.section-dark .MuiTypography-root { color: #cbd5e1; }
+.section-dark .MuiCard-root { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 8px 20px rgba(0,0,0,0.25); }
 
 /* Table of Contents */
 .toc-section {
