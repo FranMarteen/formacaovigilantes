@@ -4,8 +4,9 @@ import { AppBar, Toolbar, Container, Stack, Button } from '@mui/material'
 import ArticleOutlined from '@mui/icons-material/ArticleOutlined'
 import HelpOutline from '@mui/icons-material/HelpOutline'
 import OpenInNew from '@mui/icons-material/OpenInNew'
+import { ReadingProgress } from '../components/ReadingProgress'
 
-export default function SiteLayout({ children, title, description, schema, canonicalPath, noIndex, image, breadcrumb }) {
+export default function SiteLayout({ children, title, description, schema, canonicalPath, noIndex, image, breadcrumb, isArticle, articleMeta }) {
   const siteUrl = process.env.SITE_URL || 'https://formacaodevigilantes.com.br'
   const brand = 'Formação de Vigilantes'
   const brandSuffix = 'Ludus Magnus Cariri'
@@ -43,6 +44,7 @@ export default function SiteLayout({ children, title, description, schema, canon
 
   const canonical = canonicalPath ? `${siteUrl.replace(/\/$/,'')}${canonicalPath.startsWith('/')?canonicalPath:`/${canonicalPath}`}` : siteUrl
   const ogImage = image || `${siteUrl.replace(/\/$/,'')}/og-default.jpg`
+  const logoUrl = `${siteUrl.replace(/\/$/,'')}/og-default.jpg`
 
   // Montagem de schemas combinados (schema passado + breadcrumb)
   const schemas = []
@@ -62,6 +64,42 @@ export default function SiteLayout({ children, title, description, schema, canon
     })
     schemas.push({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: breadcrumbItems })
   }
+  // Base schemas
+  schemas.unshift({
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: brand,
+    url: siteUrl,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${siteUrl.replace(/\/$/,'')}/?q={search_term_string}`,
+      'query-input': 'required name=search_term_string'
+    }
+  })
+  schemas.unshift({
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: brand,
+    url: siteUrl,
+    logo: { '@type': 'ImageObject', url: logoUrl }
+  })
+  if (isArticle) {
+    const meta = articleMeta || {}
+    schemas.push({
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      mainEntityOfPage: canonical,
+      headline: finalTitle,
+      description: cleanDescription,
+      image: [ogImage],
+      datePublished: meta.date || undefined,
+      dateModified: meta.lastmod || meta.date || undefined,
+      author: meta.author ? { '@type': 'Person', name: meta.author } : { '@type': 'Organization', name: brand },
+      publisher: { '@type': 'Organization', name: brand, logo: { '@type': 'ImageObject', url: logoUrl } },
+      articleSection: meta.section || undefined,
+      keywords: Array.isArray(meta.tags) ? meta.tags.join(', ') : undefined
+    })
+  }
 
   return (
     <>
@@ -72,9 +110,14 @@ export default function SiteLayout({ children, title, description, schema, canon
         <meta name='description' content={cleanDescription} />
         {noIndex && <meta name='robots' content='noindex, nofollow' />}
         <link rel='canonical' href={canonical} />
+        {isArticle && image && <link rel='preload' as='image' href={image} />}
         {/* Open Graph */}
         <meta property='og:site_name' content={brand} />
-        <meta property='og:type' content='website' />
+        <meta property='og:type' content={isArticle ? 'article' : 'website'} />
+        {isArticle && articleMeta?.date && <meta property='article:published_time' content={articleMeta.date} />}
+        {isArticle && (articleMeta?.lastmod || articleMeta?.date) && <meta property='article:modified_time' content={articleMeta.lastmod || articleMeta.date} />}
+        {isArticle && articleMeta?.section && <meta property='article:section' content={articleMeta.section} />}
+        {isArticle && Array.isArray(articleMeta?.tags) && articleMeta.tags.map((t, i) => (<meta key={`tag-${i}`} property='article:tag' content={t} />))}
         <meta property='og:title' content={finalTitle} />
         <meta property='og:description' content={cleanDescription} />
         <meta property='og:url' content={canonical} />
@@ -88,6 +131,10 @@ export default function SiteLayout({ children, title, description, schema, canon
           <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas.length === 1 ? schemas[0] : schemas) }} />
         )}
       </Head>
+
+      <a href="#main" className="skip-link">Pular para conteúdo principal</a>
+
+      {isArticle && <ReadingProgress />}
 
       <AppBar position="fixed" elevation={2}>
         <Toolbar disableGutters>
@@ -108,7 +155,7 @@ export default function SiteLayout({ children, title, description, schema, canon
       </AppBar>
 
       <Toolbar />
-      <main>{children}</main>
+      <main id="main">{children}</main>
 
       <footer className="footer">
         <div className="container">

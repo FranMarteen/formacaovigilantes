@@ -10,6 +10,7 @@ export default function MyDocument(props) {
         {/* Emotion/MUI SSR insertion point */}
         <meta name="emotion-insertion-point" content="" />
         {emotionStyleTags}
+        {/* Fonts */}
         {/* Favicon/manifest placeholders (add files in /public se desejar) */}
         {/* <link rel="icon" href="/favicon.ico" /> */}
         {/* <link rel="manifest" href="/manifest.json" /> */}
