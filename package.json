@@ -8,9 +8,9 @@
     "dev": "next dev vercel-setup",
     "build": "next build vercel-setup",
     "start": "next start vercel-setup",
-    "export": "next export vercel-setup && node vercel-setup/scripts/generate-rss.js",
+    "export": "next export vercel-setup && node vercel-setup/scripts/generate-sitemap.js && node vercel-setup/scripts/generate-rss.js",
     "lint": "next lint --dir vercel-setup",
-    "postbuild": "next-sitemap --config vercel-setup/next-sitemap.config.js",
+    "postbuild": "node vercel-setup/scripts/generate-sitemap.js",
     "clean": "npx rimraf vercel-setup/.next vercel-setup/out",
     "format": "prettier --write \"vercel-setup/**/*.{js,jsx,css,md,mdx}\""
   },

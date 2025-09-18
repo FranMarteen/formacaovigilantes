@@ -3,7 +3,7 @@ module.exports = {
   generateRobotsTxt: true,
   // Usamos static export com distDir customizado; não há build-manifest completo
   ignoreBuildManifest: true,
-  sourceDir: 'vercel-setup/.next-build',
+  sourceDir: 'vercel-setup/.next-prod',
   outDir: 'vercel-setup/public',
   changefreq: 'weekly',
   priority: 0.7,

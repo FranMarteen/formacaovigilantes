@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  distDir: '.next-build',
+  distDir: '.next-prod',
   output: 'export',
   trailingSlash: true,
   images: {
